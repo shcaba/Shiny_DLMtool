@@ -69,7 +69,7 @@ conditionalPanel(
     br(),
     
     h3("Build the Operating Model"), 
-    p("Click", tags$a(href="javascript:window.open('OM_input_deescriptions.html', '_blank','width=600,height=400')", "here"), "for a description of each OM input."),
+    p("Click", tags$a(href="javascript:window.open('OM_input_descriptions.html', '_blank','width=600,height=400')", "here"), "for a description of each OM input."),
     
     wellPanel(fluidRow(column(12, uiOutput("stock.choicelist"))),
     h4("User modifications"), 
