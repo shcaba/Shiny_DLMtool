@@ -1,0 +1,1334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.1.6.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Cope, Jason">
+	<META NAME="CREATED" CONTENT="20160910;140800000000000">
+	<META NAME="CHANGEDBY" CONTENT="Cope, Jason">
+	<META NAME="CHANGED" CONTENT="20160910;195400000000000">
+	<META NAME="AppVersion" CONTENT="16.0000">
+	<META NAME="Company" CONTENT="NWFSC">
+	<META NAME="DocSecurity" CONTENT="0">
+	<META NAME="HyperlinksChanged" CONTENT="false">
+	<META NAME="LinksUpToDate" CONTENT="false">
+	<META NAME="ScaleCrop" CONTENT="false">
+	<META NAME="ShareDoc" CONTENT="false">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 1in }
+		P { margin-bottom: 0.08in; direction: ltr; widows: 2; orphans: 2 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<TABLE WIDTH=680 CELLPADDING=7 CELLSPACING=0 STYLE="page-break-before: always">
+	<COL WIDTH=93>
+	<COL WIDTH=149>
+	<COL WIDTH=41>
+	<COL WIDTH=341>
+	<TBODY>
+		<TR>
+			<TD WIDTH=93 HEIGHT=2 BGCOLOR="#b7ffff" STYLE="border-top: 2.25pt solid #00000a; border-bottom: 2.25pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2><B>Code</B></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#b7ffff" STYLE="border-top: 2.25pt solid #00000a; border-bottom: 2.25pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2><B>Name</B></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#b7ffff" STYLE="border-top: 2.25pt solid #00000a; border-bottom: 2.25pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2><B>Type</B></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#b7ffff" STYLE="border-top: 2.25pt solid #00000a; border-bottom: 2.25pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2><B>Description</B></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR></TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD COLSPAN=4 WIDTH=666 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>INPUT
+				CONTROLS</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>curE</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Current effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A reference input
+				control that maintains current effort (subject to fishing
+				efficiency changes)</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>curE75</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>75% of Current effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A reference input
+				control that maintains 75% of current effort</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DDe</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Delay-Difference-
+				effort control</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Effort
+				control version of DD - Delay - Difference Stock Assessment with
+				UMSY and MSY leading</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DDe75</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Delay-Difference-
+				effort control 75%</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Effort
+				control version of DD - Delay - Difference Stock Assessment with
+				UMSY and MSY leading that fishes at 75 per cent of FMSY</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DDess</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Delay-Difference-
+				effort control 75% effort searching</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Effort
+				searching version of DD - Delay - Difference Stock Assessment
+				with UMSY and MSY leading that fishes at 75 per cent of FMSY</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>ItargetE1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted target
+				CPUE</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD ROWSPAN=2 WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Both
+				of these management procedure incrementally adjusts the effort to
+				reach a target CPUE / relative abundance index.</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>ItargetE4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted target
+				CPUE</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>LstepCE1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted to
+				recent mean length version 1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD ROWSPAN=2 WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Management procedures
+				that incrementally adjusts the effort according to the mean
+				length of recent catches.</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>LstepCE2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted to
+				recent mean length version 2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Ltarget1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted to
+				rmean length version 1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+			<TD ROWSPAN=2 WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>A
+				management procedure that incrementally adjusts the TAC to reach
+				a target mean length in catches.</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Ltarget1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Effort adjusted to mean
+				length version 2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Effort</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>matlenlim</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Length selectivity
+				equal to maturity</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Sel.</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Fi</FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>shing
+				selectivity is set according to the maturity curve</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>matlenlim2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Length selectivity
+				higher than maturity</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Sel.</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>fishing
+				selectivity is set slightly higher than the maturity curve</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>matagelim</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Age selectivity matches
+				the maturity curve</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Sel.</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fishing selectivity at
+				age is the same as fraction mature at age</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MRreal</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Area 1 Marine Reserve
+				with reallocation</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>MPA</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Sets a marine reserve
+				in Area 1 and reallocates fishing effort to area 2</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MRnoreal</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Area 1 Marine Reserve
+				with no reallocation</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>MPA</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Sets a marine reserve
+				in Area 1 with no reallocation of fishing effort to area 2</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#ffd966" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>slotlim</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#ffd966" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Slot limit</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#ffd966" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Sel.</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#ffd966" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Sets a slot limit to
+				control effort.</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD COLSPAN=4 WIDTH=666 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border-top: none; border-bottom: 1px solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>OUTPUT
+				CONTROLS</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TBODY>
+	<TBODY>
+		<TR>
+			<TD WIDTH=93 HEIGHT=8 BGCOLOR="#a8d08d" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>AvC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Average Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border-top: 1px solid #00000a; border-bottom: none; border-left: none; border-right: 1px solid #00000a; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Sets
+				TAC as average historical catch</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>BK</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Beddington and Kirkwood
+				life-history </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Sets an OFL according
+				to current abundance and an approximation of FMSY based on length
+				at first capture.</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>BK_CC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>BK linked to a catch
+				curve</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Catch-curve analysis is
+				used to estimate current abundance that is linked to BK FMSY
+				estimate to give the OFL</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=5 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>BK_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>BK linked to a mean
+				length </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				current F (abundance) is linked to BK FMSY estimate to provide
+				the OFL</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CC1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Constant catch linked
+				to average catches</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is a average
+				historical catches </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CC4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Constant catch linked
+				to average catches</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is 70% of  average
+				historical catches </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CompSRA</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Age Composition - Stock
+				Reduction Analysis</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>F</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>What constant F creates
+				the current composition, what is FMSY? OFL = FMSY x F / C</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CompSRA4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CompSRA linked to a
+				40-10 rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>F</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the CompSRA MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DAAC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Depletion
+				Adjusted Average Catch</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC
+				multiplied by 2*depletion and divided by BMSY/B0 (Bpeak)</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>HDAAC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Hybrid </FONT></FONT><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Depletion
+				Adjusted Average Catch</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC
+				multiplied by 2*depletion and divided by BMSY/B0 (Bpeak) when
+				below BMSY, and DCAC above BMSY.</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Depletion-Based Stock
+				Reduction Analysis</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>The OFL is M x (FMSY/M)
+				x depletion x unfished biomass (the first three factors are user
+				defined, the fourth is determined by historical catches and stock
+				reduction analysis)</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA_40</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA assuming current
+				depletion is 40%</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA where stock
+				depletion is fixed at 40%</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA using mean length
+				to estimate depletion</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				depletion is used to inform DBSRA depletion</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DBSRA linked to a 40-10
+				rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the DBSRA MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Depletion-Corrected
+				Average Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>An MSY proxy that
+				accounts for catches occuring whilst dropping to productive stock
+				sizes </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC using mean length
+				to estimate depletion</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				depletion is used to inform DCAC depletion</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC40</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC assuming depletion
+				is 40%</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC where stock
+				depletion is fixed at 40%</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC linked to a 40-10
+				rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the DCAC MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>EDCAC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Extra DCAC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DCAC * 2 * depletion *
+				B0 / BMSY</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DD</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Delay-Difference
+				assessment </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Pop.D</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A delay difference
+				model is fitted to historical abundance indices and catches. The
+				model does not estimate process error. </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DD4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DD linked to a 40-10
+				rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Pop.D</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the DD MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DepF</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio linked to a
+				production curve control rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Below BMSY, the OFL is
+				mulitplied by a production curve ie. dep x (1-dep) x 4</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>DynF</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Dynamic Fratio MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Inferred derivative of
+				surplus production with biomass is used to adjust F in relation
+				to M</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fadapt</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Adaptive F MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Inferred derivative of
+				surplus production with biomass is used to adjust F between
+				bounds FMSY/2 and 2FMSY</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fdem</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Demographic FMSY method</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>FMSY is calculated as
+				r/2 where r is calculated from a demographic approach (inc
+				steepness). Coupled with an estimate of current abundance that
+				gives you the OFL.</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fdem_CC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fdem linked to a catch
+				curve</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Current abundance
+				estimates from a catch curve are linked to Fdem estimate of FMSY</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fdem_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fdem using mean length
+				to estimate depletion</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				current abundance is lined to Fdem estimate of FMSY</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>FMSYref</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>FMSY
+				ref</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>A
+				reference FMSY method (uses perfect information about FMSY)</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>FMSYref50</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Half of FMSY ref</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>50% of true simulated
+				OFL</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>FMSYref75</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>75% of FMSY ref</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>75% of true simulated
+				OFL</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fixed FMSY to M ratio</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>FMSY is a fixed
+				fraction of natural mortality rate</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio with 40-10 rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>Calculates
+				the OFL based on a fixed FMSY/M multiplied by a current estimate
+				of abundance. In this method DBSRA is paired with the 40-10 rule;
+				OFL = 0 at B</FONT></FONT></FONT><FONT COLOR="#000000"><SUB><FONT FACE="Arial, serif"><FONT SIZE=2>10%</FONT></FONT></SUB></FONT><FONT COLOR="#000000"><FONT FACE="Arial, serif"><FONT SIZE=2>.</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio_CC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio linked to a
+				catch curve</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Current abundance
+				estimates from a catch curve are linked to the Fratio MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio using mean
+				length to estimate depletion</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				depletion is used to inform Fratio abundance</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Fratio linked to a
+				40-10 rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the Fratio MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>GB_CC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Geromont and
+				Butterworth constant catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MSY seeking rule that
+				uses average historical catch as a proxy for MSY</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>GB_slope</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Geromont and
+				Butterworth CPUE slope</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC recommendations to
+				stabilize CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>GB_target</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Geromont and
+				Butterworth target CPUE and catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC recommendations to
+				achieve target CPUE and target catch</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Gcontrol</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>G-control MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Inferred derivative of
+				surplus production with biomass is used to alter the TAC</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Islope1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CPUE slope MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				maintain constant CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Islope4 </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CPUE slope MP (more
+				biologically precautionary)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				maintain constant CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Itarget1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CPUE target MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				achieve a target CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Itarget4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>CPUE target MP (more
+				biologically precautionary)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				achieve a target CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>LstepCC1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length relative to
+				historical levels is used to alter the TAC</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>LstepCC4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length MP (more
+				biologically precautionary)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length relative to
+				historical levels is used to alter the TAC</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Ltarget1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Length target MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				reach a target mean length</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Ltarget4</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Length target MP (more
+				biologically precautionary)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>TAC is adjusted to
+				reach a target mean length</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MCD</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean Catch Depletion MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MP to demonstrate high
+				information content of depletion OFL = mean catches x 2 x dep </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MCD4010</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>MCD linked to a 40-10
+				rule</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A 40-10 harvest control
+				rule is added to the MCD MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Nref</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>No reference point</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Sets catch = 0.</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Rcontrol</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>R-control MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>A demographic prior for
+				intrinsic rate of increase is used to firm up surplus production
+				calculation of G-control</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Rcontrol2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Rcontrol with quadratic
+				SP-B relationship</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>As Rcontrol but fits a
+				quadratic relationship to the derivative of SP with stock biomass</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SBT1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Southern Bluefin Tuna 1</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>An MP that adjusts TACs
+				according to apparent trend in CPUE</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SBT2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Southern Bluefin Tuna 2</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>EmInd</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>An MP that adjusts TACs
+				according to achieve target CPUE and catch</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPmod</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Surplus production
+				based TAC modifier</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Inferred derivative of
+				surplus production with biomass is used to adjust the TAC</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=20 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPMSY</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Catch-trend MSY MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Catch</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Catch trends reflect
+				depletion and combined with catches can be used to find viable
+				r-K pairs. The OFL is dep x (1-dep) x 2 x r x K</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPslope</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Slope in surplus
+				production MP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Inferred derivative of
+				surplus production with biomass is used to adjust the TAC</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPSRA</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Surplus Production
+				Stock Reduction Analysis</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>PopDy</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Like DBSRA but uses a
+				surplus prodcution model and a prior for intrinisic rate of
+				increase</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPSRA_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>SPSRA using mean length
+				to estimate depletion</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>Length</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>mean length estimate of
+				depletion is used to inform SPSRA depletion</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=7 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>YPR</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Yield Per Recruit</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Yield Per Recruit
+				estimate of F0.1 (FMSY proxy) multiplied by estimate of current
+				stock biomass</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=3 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>YPR_CC</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>YPR linked to a
+				catch-curve </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Current abundance
+				estimates of a catch curve analysis is linked to the YPR MP</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR>
+			<TD WIDTH=93 HEIGHT=2 BGCOLOR="#a8d08d" STYLE="border-top: none; border-bottom: 1.50pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>YPR_ML</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=149 BGCOLOR="#a8d08d" STYLE="border-top: none; border-bottom: 1.50pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>YPR using mean lenth to
+				estimate current abundance</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=41 BGCOLOR="#a8d08d" STYLE="border-top: none; border-bottom: 1.50pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2>LH;Lt</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=341 BGCOLOR="#a8d08d" STYLE="border-top: none; border-bottom: 1.50pt solid #00000a; border-left: none; border-right: none; padding: 0in">
+				<P><FONT FACE="Arial, serif"><FONT SIZE=2>Mean length estimate of
+				current abundance is used to inform YPR abundance</FONT></FONT></P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P STYLE="margin-bottom: 0.11in"><BR><BR>
+</P>
+</BODY>
+</HTML>
