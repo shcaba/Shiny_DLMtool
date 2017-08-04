@@ -5,7 +5,7 @@ require(shiny)
 require(shinyFiles)
 require(DLMtool)
 
-#source('load_DLM.r',local = FALSE)
+source('load_DLM.r',local = FALSE)
 
 shinyUI(fluidPage(
   titlePanel("Welcome to the DLMtool GUI"),
@@ -92,7 +92,7 @@ conditionalPanel(
     h4("User modifications"), 
     fluidRow(column(6, uiOutput("fleet.nyrs")),column(6, uiOutput("fleet.spattarg"))),
     fluidRow(column(6, uiOutput("fleet.L5")),column(6, uiOutput("fleet.LFS"))),
-    fluidRow(column(6, uiOutput("fleet.Vmaxlen")),column(6, uiOutput("fleet.Esd"))),
+    fluidRow(column(6, uiOutput("fleet.Vmaxlen")),column(6, uiOutput("fleet.Fsd"))),
     fluidRow(column(6, uiOutput("fleet.qinc")),column(6, uiOutput("fleet.qcv")))),
     
     wellPanel(fluidRow(column(12, uiOutput("obs.choicelist"))),

@@ -13,7 +13,7 @@ require(reshape2)
 require(shinyjs)
 #Source code to load DLMtool objects
 #jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
-#source('load_DLM.r',local = FALSE)
+source('load_DLM.r',local = FALSE)
 source('Functions.r',local = FALSE)
 #source("D:/JMC/Documents/GitHub/DLmethods tools/Shiny_DLMtool/load_DLM.r")
 #load.dlm.stuff<-function() {for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])}
@@ -94,7 +94,7 @@ shinyServer(function(input, output,session) {
     inFile <- input$file1
   if (is.null(inFile)) return(NULL)
 #  
-  dlm_input<-new("Data",stock=inFile$datapath)
+  dlm_input<-new("DLM_data",stock=inFile$datapath)
   if(all(is.na(dlm_input@Cat))=="FALSE")
   {
     dlm_input.df<-data.frame(t(rbind(dlm_input@Year,dlm_input@Cat,dlm_input@Cat-(dlm_input@Cat*dlm_input@CV_Cat),dlm_input@Cat+(dlm_input@Cat*dlm_input@CV_Cat))))
@@ -107,7 +107,7 @@ shinyServer(function(input, output,session) {
   output$Indexplot <- renderPlot({    
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    dlm_input<-new("Data",stock=inFile$datapath)
+    dlm_input<-new("DLM_data",stock=inFile$datapath)
     if(all(is.na(dlm_input@Ind))=="FALSE")
       {
         dlm_input.df<-data.frame(t(rbind(dlm_input@Year,dlm_input@Ind,dlm_input@Ind-(dlm_input@Ind*dlm_input@CV_Ind),dlm_input@Ind+(dlm_input@Ind*dlm_input@CV_Ind))))
@@ -120,7 +120,7 @@ shinyServer(function(input, output,session) {
   output$LHplots <- renderPlot({    
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    dlm_input<-new("Data",stock=inFile$datapath)
+    dlm_input<-new("DLM_data",stock=inFile$datapath)
    
     #VBGF
    if(any(is.na(c(dlm_input@vbLinf,dlm_input@vbK,dlm_input@vbt0)))=="FALSE")
@@ -174,7 +174,7 @@ shinyServer(function(input, output,session) {
   output$Parameterplots <- renderPlot({    
       inFile <- input$file1
       if (is.null(inFile)) return(NULL)
-      dlm_input<-new("Data",stock=inFile$datapath)
+      dlm_input<-new("DLM_data",stock=inFile$datapath)
       dlm_parameters.df<-data.frame(Parameters=c(dlm_input@AvC,dlm_input@Dt,dlm_input@Mort,dlm_input@FMSY_M,dlm_input@BMSY_B0,dlm_input@Dep,dlm_input@Abun,dlm_input@steep),CV=c(dlm_input@CV_AvC,dlm_input@CV_Dt,dlm_input@CV_Mort,dlm_input@CV_FMSY_M,dlm_input@BMSY_B0,dlm_input@CV_Dep,dlm_input@CV_Abun,dlm_input@CV_steep))
       draws<-50000
       #Average catch distribution
@@ -308,14 +308,14 @@ shinyServer(function(input, output,session) {
   canlist<-reactive({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    dlm_input<-new("Data",stock=inFile$datapath)
+    dlm_input<-new("DLM_data",stock=inFile$datapath)
     canlist<-as.list(Can(dlm_input))
   })
  
   cantlist<-reactive({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    dlm_input<-new("Data",stock=inFile$datapath)
+    dlm_input<-new("DLM_data",stock=inFile$datapath)
     cantlist<-Cant(dlm_input)
   })
   
@@ -323,14 +323,14 @@ shinyServer(function(input, output,session) {
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
     #print(canlist())
-    output.canlist<-canlist()[canlist() %in% avail("Output")]
+    output.canlist<-canlist()[canlist() %in% avail("DLM_output")]
     checkboxGroupInput("checkGroup","Available data-limited output control methods",output.canlist)
   })
 
   observe({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    output.canlist<-canlist()[canlist() %in% avail("Output")]
+    output.canlist<-canlist()[canlist() %in% avail("DLM_output")]
     if(input$selectall == 0) return(NULL) 
     else if (input$selectall%%2 == 0)
     {
@@ -346,7 +346,7 @@ shinyServer(function(input, output,session) {
   output$sensilist<-renderUI({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    output.canlist<-canlist()[canlist() %in% avail("Output")]
+    output.canlist<-canlist()[canlist() %in% avail("DLM_output")]
     radioButtons("radio","Choose data-limited output control method to explore sensitivity",output.canlist)
   })
 
@@ -356,7 +356,7 @@ shinyServer(function(input, output,session) {
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
     else{
-      dlm_input<-new("Data",stock=inFile$datapath)
+      dlm_input<-new("DLM_data",stock=inFile$datapath)
       cant.table<-data.frame(cbind(cantlist(),Needed(dlm_input)))
       colnames(cant.table)<-c("Method","Reason","Needed")
       return(cant.table)
@@ -370,7 +370,7 @@ shinyServer(function(input, output,session) {
     #if(run.check()>0){
       inFile <- input$file1
       if (is.null(inFile)) return(NULL)
-      dlm_input<-new("Data",stock=inFile$datapath)
+      dlm_input<-new("DLM_data",stock=inFile$datapath)
       TAC.out<-TAC(dlm_input,MPs=input$checkGroup,reps=input$TACreps)@TAC[,,1]
       return(TAC.out)
     }
@@ -426,7 +426,7 @@ shinyServer(function(input, output,session) {
   output$Sensiplot<-renderPlot({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    dlm_input<-new("Data",stock=inFile$datapath)
+    dlm_input<-new("DLM_data",stock=inFile$datapath)
     TAC.out<-TAC(dlm_input,MPs=input$radio,reps=input$sensireps)
     dlm_TAC_sensi<-Sense(TAC.out,MP=input$radio,nsense=input$nsensi,reps=input$sensireps,perc = c(input$lowperc,0.5,input$upperperc))
     output$downloadSensi <- downloadHandler(
@@ -449,7 +449,7 @@ shinyServer(function(input, output,session) {
   output$can.list.output<-renderUI({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    canlist.output<-canlist()[canlist() %in% avail("Output")]
+    canlist.output<-canlist()[canlist() %in% avail("DLM_output")]
     checkboxGroupInput("checkGroupout","Available output methods",canlist.output)
   })
   
@@ -457,7 +457,7 @@ shinyServer(function(input, output,session) {
   observe({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    canlist.output<-canlist()[canlist() %in% avail("Output")]
+    canlist.output<-canlist()[canlist() %in% avail("DLM_output")]
     if(input$allselect == 0) return(NULL) 
     else if (input$allselect%%2 == 0)
     {
@@ -473,7 +473,7 @@ shinyServer(function(input, output,session) {
   output$can.list.input<-renderUI({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    canlist.input<-canlist()[canlist() %in% avail("Input")]
+    canlist.input<-canlist()[canlist() %in% avail("DLM_input")]
     checkboxGroupInput("checkGroupin","Available input methods",canlist.input)
   })
   
@@ -481,7 +481,7 @@ shinyServer(function(input, output,session) {
   observe({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    canlist.input<-canlist()[canlist() %in% avail("Input")]
+    canlist.input<-canlist()[canlist() %in% avail("DLM_input")]
     if(input$selectinput == 0) return(NULL) 
     else if (input$selectinput%%2 == 0)
     {
@@ -498,7 +498,7 @@ shinyServer(function(input, output,session) {
    output$cant.list.output<-renderUI({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    cantlist.output<-cantlist()[cantlist() %in% avail("Output")]
+    cantlist.output<-cantlist()[cantlist() %in% avail("DLM_output")]
     checkboxGroupInput("checkGroupNAout","Unavailable output methods",cantlist.output)
    })
   
@@ -506,7 +506,7 @@ shinyServer(function(input, output,session) {
   observe({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    cantlist.output<-cantlist()[cantlist() %in% avail("Output")]
+    cantlist.output<-cantlist()[cantlist() %in% avail("DLM_output")]
     if(input$allselectNAop == 0) return(NULL) 
     else if (input$allselectNAop%%2 == 0)
     {
@@ -522,7 +522,7 @@ shinyServer(function(input, output,session) {
   output$cant.list.input<-renderUI({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    cantlist.input<-cantlist()[cantlist() %in% avail("Input")]
+    cantlist.input<-cantlist()[cantlist() %in% avail("DLM_input")]
     checkboxGroupInput("checkGroupNAin","Unavailable input methods",cantlist.input)
   })
   
@@ -530,7 +530,7 @@ shinyServer(function(input, output,session) {
   observe({
     inFile <- input$file1
     if (is.null(inFile)) return(NULL)
-    cantlist.input<-cantlist()[cantlist() %in% avail("Input")]
+    cantlist.input<-cantlist()[cantlist() %in% avail("DLM_input")]
     if(input$allselectNAip == 0) return(NULL) 
     else if (input$allselectNAip%%2 == 0)
     {
@@ -736,8 +736,8 @@ shinyServer(function(input, output,session) {
     sliderInput("Vmaxlen","Selectivity of the longest length class",min=0, max=1, value=get(input$fleet)@Vmaxlen,step =0.01)
     })
   })
-  observeEvent(input$fleet, {output$fleet.Esd<-renderUI({
-    sliderInput("Esd","Interannual variability in E",min=0, max=10, value=get(input$fleet)@Esd,step =0.01)
+  observeEvent(input$fleet, {output$fleet.Fsd<-renderUI({
+    sliderInput("Fsd","Interannual variability in F",min=0, max=10, value=get(input$fleet)@Fsd,step =0.01)
     })
   })
   observeEvent(input$fleet, {output$fleet.qinc<-renderUI({
@@ -751,8 +751,8 @@ shinyServer(function(input, output,session) {
 
 #Observation inputs  
   output$obs.choicelist<-renderUI({
-    if (is.null(avail("Obs"))) return(NULL) 
-    else {ObsMod <- avail("Obs")}
+    if (is.null(avail("Observation"))) return(NULL) 
+    else {ObsMod <- avail("Observation")}
     selectInput("obs","Choose Observation model",as.list(ObsMod),selected = ObsMod[1])
   })
   
@@ -930,7 +930,7 @@ shinyServer(function(input, output,session) {
     fleet.in@L5<-input$L5
     fleet.in@LFS<-input$LFS
     fleet.in@Vmaxlen<-input$Vmaxlen
-    fleet.in@Esd<-input$Esd
+    fleet.in@Fsd<-input$Fsd
     fleet.in@qinc<-input$qinc
     fleet.in@qcv<-input$qcv
     
@@ -1095,8 +1095,7 @@ shinyServer(function(input, output,session) {
     MSEout<-runMSE.box()
     subMPs<-input$plotsubMPs
     if (is.null(subMPs)) subMPs<-MPs()
-    subMSE <- Sub(MSEout, MPs=subMPs) #Grab only MPs you want to plot
-    #subMSE <- MSEout
+    subMSE <- Sub(MSEout, MPs=subMPs)
     print(Kplot2(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot"))
     output$downloadMSE_Kobe2 <- downloadHandler(
       filename = function() {paste0("MSE_Kobe",Sys.time(),".png")},

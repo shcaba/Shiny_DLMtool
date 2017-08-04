@@ -4,9 +4,10 @@ library(DLMtool)
 
 #Running TAC estimation with DLMobject
 #access example data objects
-for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
+#for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
 avail('DLM_data') 
-Ex_dlm.data<-new("DLM_data",stock="C:/Users/Jason.Cope/Documents/GitHub/Data-limited-tools/Shiny_DLMtool/DLM_objects_examples/Example_datafile.csv")
+setwd("D:/JMC/Documents/GitHub/Shiny_DLMtool/")
+Ex_dlm.data<-new("Data",stock="DLM_objects_examples/Example_datafile.csv")
 
 #Example:explore dlm object
 slotNames(Ex_dlm.data) #checks object inputs
@@ -54,8 +55,8 @@ avail("Observation")
 ourOM <- new('OM',ourstock, ourfleet, Imprecise_Biased)
 
 #Choose which methods to test
-MPs <- c("BK", "CC1", "CompSRA", "DBSRA", "DBSRA4010", "DCAC", "DCAC4010", "DepF", "DynF",
-         "EDCAC", "Fratio", "Itarget1", "Itarget4", "MCD", "MCD4010", "SBT1")
+MPs <- c("BK", "CC1", "CompSRA", "DBSRA") #, "DBSRA4010", "DCAC", "DCAC4010", "DepF", "DynF",
+         #"EDCAC", "Fratio", "Itarget1", "Itarget4", "MCD", "MCD4010", "SBT1")
 
 #Run MSE
 ourMSE <- runMSE(ourOM, MPs=MPs, proyears=20, interval=5, nsim=16,reps=1)
