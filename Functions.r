@@ -759,58 +759,141 @@ calcMSESense <- function(MP=1, MSEobj, YVar=c("Y", "B")) { # supporting function
 }
 
 # Sub function - in DLMtool as well - but included here as server has old version
-Sub <- function(MSEobj, MPs=NULL, sims=NULL, years=NULL) {
-  Class <- class(MPs)
-  if(Class == "NULL") subMPs <- MSEobj@MPs
-  if(Class == "integer" | Class == "numeric") subMPs <- MSEobj@MPs[as.integer(MPs)]
-  if(Class == "character") subMPs <- MPs
-  SubMPs <- match(subMPs, MSEobj@MPs ) #  which(MSEobj@MPs %in% subMPs)
-  not <- (subMPs %in% MSEobj@MPs) # Check for MPs misspelled
-  ind <- which(not == FALSE)
-  newMPs <- MSEobj@MPs[SubMPs]
-  if (length(SubMPs) < 1) stop("MPs not found")
-  if (length(ind > 0)) {
-    message("Warning: MPs not found - ", paste0(subMPs[ind], " "))
-	message("Subsetting by MPs: ", paste0(newMPs, " "))
-  }
-  
-  ClassSims <- class(sims)
-  if (ClassSims == "NULL") SubIts <- 1:MSEobj@nsim
-  if (ClassSims == "integer" | ClassSims == "numeric") {
-    # sims <- 1:min(MSEobj@nsim, max(sims))
-	SubIts <- as.integer(sims)
-  }	
-  if (ClassSims == "logical") SubIts <- which(sims)
-
-  ClassYrs <- class(years)
-  AllNYears <- MSEobj@proyears
-  if (ClassYrs == "NULL")  Years <- 1:AllNYears
-  if (ClassYrs == "integer" | ClassYrs == "numeric") Years <- years
-  if (max(Years) > AllNYears) stop("years exceeds number of years in MSE")
-  if (min(Years) <= 0) stop("years must be positive")
-  if (min(Years) != 1) {
-    message("Not starting from first year. Are you sure you want to do this?")
-    message("Probably a bad idea!")
-  }
-  if (!all(diff(Years) == 1)) stop("years are not consecutive")
-  if (length(Years) <= 1) stop("You are going to want more than 1 projection year")
-  MSEobj@proyears <- max(Years)
-  
-  SubF <- MSEobj@F_FMSY[SubIts,SubMPs,Years]
-  SubB <- MSEobj@B_BMSY[SubIts,SubMPs,Years]
-  OutOM <- MSEobj@OM[SubIts,]
-  
-  SubResults <- new('MSE',Name=MSEobj@Name, nyears=MSEobj@nyears, 
-    proyears=MSEobj@proyears, nMPs=length(SubMPs), MPs=newMPs, 
-	nsim=length(SubIts), OMtable=OutOM, Obs=MSEobj@Obs[SubIts,], 
-	B_BMSYa=SubB, F_FMSYa=SubF, Ba=MSEobj@B[SubIts,SubMPs,Years], 
-	FMa=MSEobj@FM[SubIts,SubMPs,Years], Ca=MSEobj@C[SubIts,SubMPs,Years], 
-	TACa=MSEobj@TAC[SubIts,SubMPs,Years], SSB_hist=MSEobj@SSB_hist[SubIts,,,],
-	CB_hist=MSEobj@CB_hist[SubIts,,,], FM_hist=MSEobj@FM_hist[SubIts,,,])
-  
- return(SubResults)
+Sub <- function (MSEobj, MPs = NULL, sims = NULL, years = NULL) 
+{
+    checkMSE(MSEobj)
+    Class <- class(MPs)
+    if (Class == "NULL") 
+        subMPs <- MSEobj@MPs
+    if (Class == "integer" | Class == "numeric") 
+        subMPs <- MSEobj@MPs[as.integer(MPs)]
+    if (Class == "character") 
+        subMPs <- MPs
+    SubMPs <- match(subMPs, MSEobj@MPs)
+    not <- (subMPs %in% MSEobj@MPs)
+    ind <- which(not == FALSE)
+    newMPs <- MSEobj@MPs[SubMPs]
+    if (length(SubMPs) < 1) 
+        stop("MPs not found")
+    if (length(ind > 0)) {
+        message("Warning: MPs not found - ", paste0(subMPs[ind], 
+            " "))
+        message("Subsetting by MPs: ", paste0(newMPs, " "))
+    }
+    ClassSims <- class(sims)
+    if (ClassSims == "NULL") 
+        SubIts <- 1:MSEobj@nsim
+    if (ClassSims == "integer" | ClassSims == "numeric") {
+        SubIts <- as.integer(sims)
+    }
+    if (ClassSims == "logical") 
+        SubIts <- which(sims)
+    nsim <- length(SubIts)
+    ClassYrs <- class(years)
+    AllNYears <- MSEobj@proyears
+    if (ClassYrs == "NULL") 
+        Years <- 1:AllNYears
+    if (ClassYrs == "integer" | ClassYrs == "numeric") 
+        Years <- years
+    if (max(Years) > AllNYears) 
+        stop("years exceeds number of years in MSE")
+    if (min(Years) <= 0) 
+        stop("years must be positive")
+    if (min(Years) != 1) {
+        message("Not starting from first year. Are you sure you want to do this?")
+        message("Probably a bad idea!")
+    }
+    if (!all(diff(Years) == 1)) 
+        stop("years are not consecutive")
+    if (length(Years) <= 1) 
+        stop("You are going to want more than 1 projection year")
+    MSEobj@proyears <- max(Years)
+    SubF <- MSEobj@F_FMSY[SubIts, SubMPs, Years, drop = FALSE]
+    SubB <- MSEobj@B_BMSY[SubIts, SubMPs, Years, drop = FALSE]
+    SubC <- MSEobj@C[SubIts, SubMPs, Years, drop = FALSE]
+    SubBa <- MSEobj@B[SubIts, SubMPs, Years, drop = FALSE]
+    SubFMa <- MSEobj@FM[SubIts, SubMPs, Years, drop = FALSE]
+    SubTACa <- MSEobj@TAC[SubIts, SubMPs, Years, drop = FALSE]
+    OutOM <- MSEobj@OM[SubIts, ]
+    tt <- try(slot(MSEobj, "Effort"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "Effort") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "Effort") <- array(NA)
+    if (all(is.na(MSEobj@Effort))) {
+        SubEffort <- array(NA)
+    }
+    else{
+        SubEffort <- MSEobj@Effort[SubIts, SubMPs, Years, drop = FALSE]
+    }
+    tt <- try(slot(MSEobj, "SSB"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "SSB") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "SSB") <- array(NA)
+    if (all(is.na(MSEobj@SSB))) {
+        SubSSB <- array(NA)
+    }
+    else {
+        SubSSB <- MSEobj@SSB[SubIts, SubMPs, Years, drop = FALSE]
+    }
+    tt <- try(slot(MSEobj, "VB"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "VB") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "VB") <- array(NA)
+    if (all(is.na(MSEobj@VB))) {
+        SubVB <- array(NA)
+    }
+    else {
+        SubVB <- MSEobj@VB[SubIts, SubMPs, Years, drop = FALSE]
+    }
+    tt <- try(slot(MSEobj, "PAA"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "PAA") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "PAA") <- array(NA)
+    if (all(is.na(MSEobj@PAA))) {
+        SubPAA <- array(NA)
+    }
+    else {
+        SubPAA <- MSEobj@PAA[SubIts, SubMPs, , drop = FALSE]
+    }
+    tt <- try(slot(MSEobj, "CAL"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "CAL") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "CAL") <- array(NA)
+    if (all(is.na(MSEobj@CAL))) {
+        SubCAL <- array(NA)
+    }
+    else {
+        SubCAL <- MSEobj@CAL[SubIts, SubMPs, , drop = FALSE]
+    }
+    tt <- try(slot(MSEobj, "CAA"), silent = TRUE)
+    if (class(tt) == "try-error") 
+        slot(MSEobj, "CAA") <- array(NA)
+    if (all(is.na(tt)) || all(tt == 0)) 
+        slot(MSEobj, "CAA") <- array(NA)
+    if (all(is.na(MSEobj@CAA))) {
+        SubCAA <- array(NA)
+    }
+    else {
+        SubCAA <- MSEobj@CAA[SubIts, SubMPs, , drop = FALSE]
+    }
+    CALbins <- MSEobj@CALbins
+    SubResults <- new("MSE", Name = MSEobj@Name, nyears = MSEobj@nyears, 
+        proyears = MSEobj@proyears, nMPs = length(SubMPs), MPs = newMPs, 
+        nsim = length(SubIts), OM = OutOM, Obs = MSEobj@Obs[SubIts, 
+            , drop = FALSE], B_BMSY = SubB, F_FMSY = SubF, B = SubBa, 
+        SSB = SubSSB, VB = SubVB, FM = SubFMa, SubC, TAC = SubTACa, 
+        SSB_hist = MSEobj@SSB_hist[SubIts, , , , drop = FALSE], 
+        CB_hist = MSEobj@CB_hist[SubIts, , , , drop = FALSE], 
+        FM_hist = MSEobj@FM_hist[SubIts, , , , drop = FALSE], 
+        Effort = SubEffort, PAA = SubPAA, CAL = SubCAL, CAA = SubCAA, 
+        CALbins = CALbins)
+    return(SubResults)
 }
-
  
 # KPlot2
 Kplot2 <- function(MSEobj,maxsim=60,nam=NA){ 

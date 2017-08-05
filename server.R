@@ -1093,10 +1093,10 @@ shinyServer(function(input, output,session) {
 
   output$MSE_Kobe2 <- renderPlot({   
     MSEout<-runMSE.box()
+    print(MSEout)
     subMPs<-input$plotsubMPs
     if (is.null(subMPs)) subMPs<-MPs()
     subMSE <- Sub(MSEout, MPs=subMPs) #Grab only MPs you want to plot
-    #subMSE <- MSEout
     print(Kplot2(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot"))
     output$downloadMSE_Kobe2 <- downloadHandler(
       filename = function() {paste0("MSE_Kobe",Sys.time(),".png")},

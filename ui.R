@@ -30,7 +30,7 @@ shinyUI(fluidPage(
       p("More information can be found at", tags$a(href="http://www.datalimitedtoolkit.org/","http://www.datalimitedtoolkit.org/",target="_blank")),
       br(),
       h4("Information on the DLMtool Shiny web application"),
-      p("The Shiny app for the DLMtool was developed by Dr. Jason Cope of NOAA Fisheries (jason.cope@noaa.gov). All comments on the app's functionality and requests for features should be directed to him. The sources code for the app can be found ", tags$a(href="https://github.com/shcaba/Data-limited-tools/tree/master/Shiny_DLMtool", "here",target="_blank") )
+      p("The Shiny app for the DLMtool was developed by Dr. Jason Cope of NOAA Fisheries (jason.cope@noaa.gov). All comments on the app's functionality and requests for features should be directed to him. The sources code for the app can be found ", tags$a(href="https://github.com/shcaba/Shiny_DLMtool", "here",target="_blank") )
     ),
     conditionalPanel(
     condition="input.conditionedPanels==3",wellPanel(uiOutput("choicelist"),
