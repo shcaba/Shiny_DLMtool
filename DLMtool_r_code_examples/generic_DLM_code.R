@@ -6,7 +6,8 @@ library(DLMtool)
 #access example data objects
 #for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
 avail('DLM_data') 
-setwd("D:/JMC/Documents/GitHub/Shiny_DLMtool/")
+#setwd("D:/JMC/Documents/GitHub/Shiny_DLMtool/")
+setwd("C:/Users/Jason.Cope/Documents/GitHub/Shiny_DLMtool/")
 Ex_dlm.data<-new("Data",stock="DLM_objects_examples/Example_datafile.csv")
 
 #Example:explore dlm object

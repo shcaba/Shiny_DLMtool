@@ -933,6 +933,10 @@ shinyServer(function(input, output,session) {
     fleet.in@Esd<-input$Esd
     fleet.in@qinc<-input$qinc
     fleet.in@qcv<-input$qcv
+#    fleet.in@LR5<-input$LR5
+#    fleet.in@LFR<-input$LFR
+#    fleet.in@Rmaxlen<-input$Rmaxlen
+#    fleet.in@DR<-input$DR
     
     obsmod.in<-get(input$obs)
     
@@ -970,10 +974,13 @@ shinyServer(function(input, output,session) {
     obsmod.in@beta<-input$beta
 
     OM<- new('OM',stock.in, fleet.in, obsmod.in)
+    output$downloadOM <- downloadHandler(
+          filename = function() { paste0("OM",Sys.time(),".DMP", sep='') },
+          content = function(file) {save(OM,file=file)}) 
     return(OM)
   })
 
-  
+    
   
   
  #   output$MPtest <- renderPrint({    
@@ -1003,7 +1010,7 @@ shinyServer(function(input, output,session) {
              progress$set(value = i)
              Sys.sleep(0.5)
            }
-         MSEout <- runMSE(OM(), MPs=MPs(), proyears=input$Projyears, interval=input$MSE_intervals, nsim=input$numsims,reps=input$reps,pstar=input$pstar)
+         MSEout <- runMSE(OM(), MPs=MPs(),nsim=input$numsims,proyears=input$Projyears,interval=input$MSE_intervals,pstar=input$pstar,reps=input$reps)
          return(MSEout)
     })
 
@@ -1011,9 +1018,13 @@ shinyServer(function(input, output,session) {
   output$MSE_summary <- renderPrint({    
       MSE.summary<-summary(runMSE.box())
       MSEout<-runMSE.box()
+      OMin<-OM()
       output$downloadMSE <- downloadHandler(
         filename = function() { paste0("MSEout",Sys.time(),".DMP", sep='') },
         content = function(file) {save(MSEout,file=file)}) 
+      output$downloadOM <- downloadHandler(
+        filename = function() { paste0("OM",Sys.time(),".DMP", sep='') },
+        content = function(file) {save(OMin,file=file)}) 
       return(MSE.summary)
     })
 #MSE Convergence plot    
@@ -1137,6 +1148,7 @@ shinyServer(function(input, output,session) {
     output$MSEplots <- renderUI({
       tabsetPanel(id = "subTabPanel1", 
                   tabPanel("MSE summary",verbatimTextOutput("MSE_summary"),downloadButton('downloadMSE', 'Download MSE output')),
+ #                 tabPanel("Operating Model",verbatimTextOutput("MSE_summary"),downloadButton('downloadOM', 'Download OM specifications')),
                   tabPanel("Convergence plot",plotOutput("MSE_Convergence",width="800px",height="720px"),downloadButton('downloadMSE_Converge', 'Download convergence plots')),
                   tabPanel("Trade-off plots",plotOutput("MSE_TO1_plot1",width="800px",height="720px"), downloadButton('downloadMSE_TOff1', 'Download trade-off plot'), plotOutput("MSE_TO1_plot2",width="800px",height="500px"),downloadButton('downloadMSE_TOff2', 'Download Tradeoff Plot')),
                   tabPanel("Kobe plot",plotOutput("MSE_Kobe2",width="800px",height="720px"),downloadButton('downloadMSE_Kobe2', 'Download Kobe plots')),

@@ -94,6 +94,8 @@ conditionalPanel(
     fluidRow(column(6, uiOutput("fleet.L5")),column(6, uiOutput("fleet.LFS"))),
     fluidRow(column(6, uiOutput("fleet.Vmaxlen")),column(6, uiOutput("fleet.Esd"))),
     fluidRow(column(6, uiOutput("fleet.qinc")),column(6, uiOutput("fleet.qcv")))),
+#    fluidRow(column(6, uiOutput("fleet.LR5")),column(6, uiOutput("fleet.LFR"))),
+#    fluidRow(column(6, uiOutput("fleet.Rmaxlen")),column(6, uiOutput("fleet.DR")))),
     
     wellPanel(fluidRow(column(12, uiOutput("obs.choicelist"))),
     h4("User modifications"), 
@@ -117,13 +119,16 @@ conditionalPanel(
     fluidRow(column(6, uiOutput("Obs.Brefcv")),column(6, uiOutput("Obs.Crefcv")))),
     #Get MSE specifications
     wellPanel(h4("MSE specifications"), 
-    fluidRow(column(6,numericInput("Projyears", "# of projection years", value=20,min=1, max=1000, step=1)),column(6,numericInput("MSE_intervals", "Intervals of method application", value=5,min=1, max=200, step=1))),
+    fluidRow(column(6,numericInput("Projyears", "# of projection years", value=20,min=1, max=1000, step=1)),column(6,numericInput("MSE_intervals", "Method intervals", value=5,min=1, max=200, step=1))),
     fluidRow(column(6,numericInput("numsims", "# of simulations", value=10,min=1, max=1000, step=1)),column(6, numericInput("reps", "Repetitions", value=1,min=1, max=100, step=1))),
-    fluidRow(column(6,numericInput("pstar", "P* quantile", value=0.5,min=0, max=0.5, step=0.01)))
+    fluidRow(column(6,numericInput("pstar", "P* quantile", value=0.5,min=0, max=0.5, step=0.01))) #,br(),column(6,downloadButton('downloadOM', 'Download OM'))),
     ),
     tags$head(tags$style(HTML('#run{background-color:orange}'))),
-    actionButton("run_dlm_MSE",strong("Run MSE"),width="100%" ,icon("play-circle"),style="font-size:120%;border:2px solid;background:#ccffcc")
-    )
+    actionButton("run_dlm_MSE",strong("Run MSE"),width="100%" ,icon("play-circle"),style="font-size:120%;border:2px solid;background:#ccffcc"),
+    br(),
+    br(),
+    downloadButton('downloadOM', 'Download Operating Model')
+  )
 #End of sidebarPanel
    ),
 
