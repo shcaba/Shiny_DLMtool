@@ -5,7 +5,7 @@ library(DLMtool)
 for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
 avail('DLM_data') 
 #load user defined DLM-object
-setwd("C:/Users/Jason.Cope/Desktop/Indonesia_2017/class materials/Demos/DLMtool/Index-based methods/")
+#setwd("C:/Users/Jason.Cope/Desktop/Indonesia_2017/class materials/Demos/DLMtool/Index-based methods/")
 Ex_dlm.data<-new("DLM_data",stock="C:/Users/Jason.Cope/Documents/GitHub/Data-limited-tools/Shiny_DLMtool/DLM_objects_examples/Example_datafile.csv")
 
 ###################################

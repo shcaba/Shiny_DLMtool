@@ -5,7 +5,7 @@ library(DLMtool)
 #Running TAC estimation with DLMobject
 #access example data objects
 #for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
-avail('DLM_data') 
+avail('Data') 
 #setwd("D:/JMC/Documents/GitHub/Shiny_DLMtool/")
 setwd("C:/Users/Jason.Cope/Documents/GitHub/Shiny_DLMtool/")
 Ex_dlm.data<-new("Data",stock="DLM_objects_examples/Example_datafile.csv")
@@ -48,11 +48,11 @@ OM@Name
 
 # Choose a fleet type and 
 # generic fleet of flat recent effort, adding dome-shaped vulnerability as a possibility for older age classes: 
-avail("Fleet")
+#avail("Fleet")
 ourfleet <- Generic_FlatE
 ourfleet@Vmaxlen <- c(0.5, 1)
 
-avail("Observation")
+#avail("Observation")
 ourOM <- new('OM',ourstock, ourfleet, Imprecise_Biased)
 
 #Choose which methods to test
