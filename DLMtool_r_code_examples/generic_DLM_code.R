@@ -52,7 +52,7 @@ class(ORCS_refined)<-"Output"
 environment(ORCS_refined) <- asNamespace('DLMtool')
 
 Example_datafile@Misc<-list(2)
-sapply(1,ORCS_refined,Red_snapper,reps=5)
+sapply(1,ORCS_refined,Example_datafile,reps=5)
 
 
 #############################
@@ -70,8 +70,8 @@ ourstock@D <- c(0.05,0.3)
 ourstock@Frac_area_1 <- c(0.05,0.15)
 ourstock@Prob_staying <- c(0.4,0.99)
 #Expore or change inputs
-slotNames(OM)
-OM@Name
+slotNames(ourstock)
+ourstock@Name
 
 # Choose a fleet type and 
 # generic fleet of flat recent effort, adding dome-shaped vulnerability as a possibility for older age classes: 
