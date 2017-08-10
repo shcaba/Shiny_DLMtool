@@ -27,8 +27,35 @@ axis(2,at=c(1:length(Ex_dlm.data.TAC@MPs)),labels= Ex_dlm.data.TAC@MPs,las=2)
 #Sensitivity to specified method and its inputs
 Example_DCAC_sensi<-Sense(Ex_dlm.data.TAC,"DCAC")
 
-#############################
+#########################
+### Create custom DLM ###
+#########################
+ORCS_refined<-function(x,Data,reps=100,stock.cat=3)
+{
+    Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
+	scalar<-c(2,1.22,0.41)
+	apply(Ct.in,1,quantile,0.1)*scalar[stock.cat]
+}
+class(ORCS_refined)<-"Output"
+environment(ORCS_refined) <- asNamespace('DLMtool')
 
+sapply(1,ORCS_refined,Red_snapper,reps=5,stock.cat=1)
+
+#Stock category as a slot
+ORCS_refined<-function(x,Data,reps=100)
+{
+    Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
+	scalar<-c(2,1.22,0.41)
+	apply(Ct.in,1,quantile,0.1)*scalar[Data@Misc[[1]][1]]
+}
+class(ORCS_refined)<-"Output"
+environment(ORCS_refined) <- asNamespace('DLMtool')
+
+Example_datafile@Misc<-list(2)
+sapply(1,ORCS_refined,Red_snapper,reps=5)
+
+
+#############################
 ###### MSE Example ######
 #Make newe Operating model
 avail('Stock')
@@ -71,3 +98,6 @@ Tplot(ourMSE) # trade-offs plot
 Pplot(ourMSE) # overfishing trajectories plot
 Kplot(ourMSE) # kobe plots
 VOI(ourMSE) #value of information plot
+
+
+#Customize MP
