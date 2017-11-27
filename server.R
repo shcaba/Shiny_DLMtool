@@ -662,12 +662,12 @@ shinyServer(function(input, output,session) {
     })
   })
   observeEvent(input$stock, {output$stock.recgrad<-renderUI({
-    sliderInput("recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@recgrad,step =0.1)
+    sliderInput("recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@SRrel,step =0.1)
     })
   observe({
     if (input$zerogradients%%2 == 0)
     {
-      updateSliderInput(session,"recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@recgrad,step =0.1)
+      updateSliderInput(session,"recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@SRrel,step =0.1)
     }
     else
     {
