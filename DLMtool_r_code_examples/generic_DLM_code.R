@@ -32,7 +32,7 @@ Example_DCAC_sensi<-Sense(Ex_dlm.data.TAC,"DCAC")
 #########################
 ORCS_refined<-function(x,Data,reps=100,stock.cat=3)
 {
-    Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
+  Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
 	scalar<-c(2,1.22,0.41)
 	apply(Ct.in,1,quantile,0.1)*scalar[stock.cat]
 }
@@ -44,7 +44,7 @@ sapply(1,ORCS_refined,Red_snapper,reps=5,stock.cat=1)
 #Stock category as a slot
 ORCS_refined<-function(x,Data,reps=100)
 {
-    Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
+  Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
 	scalar<-c(2,1.22,0.41)
 	apply(Ct.in,1,quantile,0.1)*scalar[Data@Misc[[1]][1]]
 }
