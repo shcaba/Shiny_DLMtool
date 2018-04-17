@@ -34,7 +34,8 @@ ORCS_refined<-function(x,Data,reps=100,stock.cat=3)
 {
   Ct.in<-mapply(function(xx) rlnorm(reps,log(Data@Cat[x,xx]),Data@CV_Cat),xx=1:length(Data@Cat[1,]))
 	scalar<-c(2,1.22,0.41)
-	apply(Ct.in,1,quantile,0.1)*scalar[stock.cat]
+	ptile<-c(0.9,0.25,0.1)
+	apply(Ct.in,1,quantile,ptile[stock.cat])*scalar[stock.cat]
 }
 class(ORCS_refined)<-"Output"
 environment(ORCS_refined) <- asNamespace('DLMtool')
@@ -79,7 +80,7 @@ ourstock@Name
 ourfleet <- Generic_FlatE
 ourfleet@Vmaxlen <- c(0.5, 1)
 
-#avail("Observation")
+#avail("Obs")
 ourOM <- new('OM',ourstock, ourfleet, Imprecise_Biased)
 
 #Choose which methods to test

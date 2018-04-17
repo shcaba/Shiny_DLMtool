@@ -756,8 +756,8 @@ shinyServer(function(input, output,session) {
     selectInput("obs","Choose Observation model",as.list(ObsMod),selected = ObsMod[1])
   })
   
-  observeEvent(input$obs, {output$Obs.LenMbiascv<-renderUI({
-    numericInput("LenMbiascv","Bias: L50%",value=get(input$obs)@LenMbiascv,min=0, max=5, step=0.01)
+  observeEvent(input$obs, {output$Obs.LenMcv<-renderUI({
+    numericInput("LenMcv","Bias: L50%",value=get(input$obs)@LenMcv,min=0, max=5, step=0.01)
     })
   })
   observeEvent(input$obs, {output$Obs.Cobs<-renderUI({
@@ -784,108 +784,108 @@ shinyServer(function(input, output,session) {
     sliderInput("CAL_ESS","Effective age samples/year",min=-0, max=1250, value=get(input$obs)@CAL_ESS, step=1)
     })
   })
-  # observeEvent(input$obs, {output$Obs.CALcv<-renderUI({
-  #   sliderInput("CALcv","Variability in length at age",min=-0, max=1, value=get(input$obs)@CALcv, step=0.01)
-  #   })
-  # })
+  observeEvent(input$obs, {output$Obs.CALcv<-renderUI({
+    sliderInput("CALcv","Variability in length at age",min=-0, max=1, value=get(input$obs)@CALcv, step=0.01)
+    })
+  })
   observeEvent(input$obs, {output$Obs.Iobs<-renderUI({
     sliderInput("Iobs","Obs. error in rel. abund. index",min=-0, max=2, value=get(input$obs)@Iobs, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Ibiascv<-renderUI({
-    numericInput("Ibiascv","Bias: rel. abund. index",value=get(input$obs)@Ibiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Icv<-renderUI({
+    numericInput("Icv","Bias: rel. abund. index",value=get(input$obs)@Icv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Mbiascv<-renderUI({
-    numericInput("Mbiascv","Bias: natural mortality",value=get(input$obs)@Mbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Mcv<-renderUI({
+    numericInput("Mcv","Bias: natural mortality",value=get(input$obs)@Mcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Linfbiascv<-renderUI({
-    numericInput("Linfbiascv","Bias: VBGF Linf",value=get(input$obs)@Linfbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Linfcv<-renderUI({
+    numericInput("Linfcv","Bias: VBGF Linf",value=get(input$obs)@Linfcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Kbiascv<-renderUI({
-    numericInput("Kbiascv","Bias: VBGF k",value=get(input$obs)@Kbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Kcv<-renderUI({
+    numericInput("Kcv","Bias: VBGF k",value=get(input$obs)@Kcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.t0biascv<-renderUI({
-    numericInput("tbias0cv","Bias: VBGF t0",value=get(input$obs)@t0biascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.t0cv<-renderUI({
+    numericInput("t0cv","Bias: VBGF t0",value=get(input$obs)@t0cv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.LFCbiascv<-renderUI({
-    numericInput("LFCbiascv","Bias: length at first capture",value=get(input$obs)@LFCbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.LFCcv<-renderUI({
+    numericInput("LFCcv","Bias: length at first capture",value=get(input$obs)@LFCcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.LFSbiascv<-renderUI({
-    numericInput("LFSbiascv","Bias: length at 1st full selectivity",value=get(input$obs)@LFSbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.LFScv<-renderUI({
+    numericInput("LFScv","Bias: length at 1st full selectivity",value=get(input$obs)@LFScv,min=0, max=2, step=0.01)
     })
   })
-  # observeEvent(input$obs, {output$Obs.B0cv<-renderUI({
-  #   numericInput("B0cv","Bias: unfished stock size",value=get(input$obs)@B0cv,min=0, max=2, step=0.01)
-  #   })
-  # })
-  observeEvent(input$obs, {output$Obs.FMSYbiascv<-renderUI({
-    numericInput("FMSYbiascv","Bias: FMSY",value=get(input$obs)@FMSYbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.B0cv<-renderUI({
+    numericInput("B0cv","Bias: unfished stock size",value=get(input$obs)@B0cv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.FMSY_Mbiascv<-renderUI({
-    numericInput("FMSY_Mbiascv","Bias: FMSY/M",value=get(input$obs)@FMSY_Mbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.FMSYcv<-renderUI({
+    numericInput("FMSYcv","Bias: FMSY",value=get(input$obs)@FMSYcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.BMSY_B0biascv<-renderUI({
-    numericInput("BMSY_B0biascv","Bias: BMSY/B0",value=get(input$obs)@BMSY_B0biascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.FMSY_Mcv<-renderUI({
+    numericInput("FMSY_Mcv","Bias: FMSY/M",value=get(input$obs)@FMSY_Mcv,min=0, max=2, step=0.01)
     })
   })
-  # observeEvent(input$obs, {output$Obs.rcv<-renderUI({
-  #   numericInput("rcv","Bias: intrinsic rate of increase",value=get(input$obs)@rcv,min=0, max=2, step=0.01)
-  #   })
-  # })
+  observeEvent(input$obs, {output$Obs.BMSY_B0cv<-renderUI({
+    numericInput("BMSY_B0cv","Bias: BMSY/B0",value=get(input$obs)@BMSY_B0cv,min=0, max=2, step=0.01)
+    })
+  })
+  observeEvent(input$obs, {output$Obs.rcv<-renderUI({
+    numericInput("rcv","Bias: intrinsic rate of increase",value=get(input$obs)@rcv,min=0, max=2, step=0.01)
+    })
+  })
   observeEvent(input$obs, {output$Obs.Dbiascv<-renderUI({
     numericInput("Dbiascv","Bias: stock status",value=get(input$obs)@Dbiascv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Dobs<-renderUI({
-    sliderInput("Dobs","Obs. error in stock status",min=-0, max=2, value=get(input$obs)@Dobs, step=0.01)
+  observeEvent(input$obs, {output$Obs.Dcv<-renderUI({
+    sliderInput("Dcv","Obs. error in stock status",min=-0, max=2, value=get(input$obs)@Dcv, step=0.01)
     })  
   })
-  observeEvent(input$obs, {output$Obs.Btobs<-renderUI({
-    sliderInput("Btobs","Obs. error of current stock scale",min=-0, max=2, value=get(input$obs)@Btobs, step=0.01)
+  observeEvent(input$obs, {output$Obs.Btbias<-renderUI({
+    sliderInput("Btbias","Bounds in obs. error of current stock scale",min=-0, max=2, value=get(input$obs)@Btbias, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Btbiascv<-renderUI({
-    sliderInput("Btbiascv","Bias in current stock scale",min=-0, max=2, value=get(input$obs)@Btbiascv, step=0.01)
+  observeEvent(input$obs, {output$Obs.Btcv<-renderUI({
+    sliderInput("Btcv","Obs. error in current stock scale",min=-0, max=2, value=get(input$obs)@Btcv, step=0.01)
     })
   })
-  # observeEvent(input$obs, {output$Obs.Fcurbiascv<-renderUI({
-  #   numericInput("Fcurbiascv","Bias: current F",value=get(input$obs)@Fcurbiascv,min=0, max=2, step=0.01)
-  #   })
-  # })
-  # observeEvent(input$obs, {output$Obs.Fcurcv<-renderUI({
-  #   sliderInput("Fcurcv","Obs. error in current F",min=-0, max=2, value=get(input$obs)@Fcurcv, step=0.01)
-  #   })
-  # })
-  observeEvent(input$obs, {output$Obs.hbiascv<-renderUI({
-    numericInput("hbiascv","Bias: steepness",value=get(input$obs)@hbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Fcurbiascv<-renderUI({
+    numericInput("Fcurbiascv","Bias: current F",value=get(input$obs)@Fcurbiascv,min=0, max=2, step=0.01)
     })
   })
-  # observeEvent(input$obs, {output$Obs.maxagecv<-renderUI({
-  #   numericInput("maxagecv","Bias in max. age",value=get(input$obs)@maxagecv,min=0, max=2, step=0.01)
-  #   })
-  # })
-  observeEvent(input$obs, {output$Obs.Recbiascv<-renderUI({
-    sliderInput("Recbiascv","Bias: recruitment slope",min=-0, max=2, value=get(input$obs)@Recbiascv, step=0.01)
+  observeEvent(input$obs, {output$Obs.Fcurcv<-renderUI({
+    sliderInput("Fcurcv","Obs. error in current F",min=-0, max=2, value=get(input$obs)@Fcurcv, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Irefbiascv<-renderUI({
-    numericInput("Irefbiascv","Bias: target reference stock status",value=get(input$obs)@Irefbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.hcv<-renderUI({
+    numericInput("hcv","Bias: steepness",value=get(input$obs)@hcv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Crefbiascv<-renderUI({
-    numericInput("Crefbiascv","Bias: target catch (e.g., MSY)",value=get(input$obs)@Crefbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.maxagecv<-renderUI({
+    numericInput("maxagecv","Bias in max. age",value=get(input$obs)@maxagecv,min=0, max=2, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Brefbiascv<-renderUI({
-    numericInput("Brefbiascv","Bias: target reference biomass (e.g. BMSY)",value=get(input$obs)@Brefbiascv,min=0, max=2, step=0.01)
+  observeEvent(input$obs, {output$Obs.Reccv<-renderUI({
+    sliderInput("Reccv","Obs. error in for recruitment slope",min=-0, max=2, value=get(input$obs)@Reccv, step=0.01)
+    })
+  })
+  observeEvent(input$obs, {output$Obs.Irefcv<-renderUI({
+    numericInput("Irefcv","Bias: target reference stock status",value=get(input$obs)@Irefcv,min=0, max=2, step=0.01)
+    })
+  })
+  observeEvent(input$obs, {output$Obs.Crefcv<-renderUI({
+    numericInput("Crefcv","Bias: target catch (e.g., MSY)",value=get(input$obs)@Crefcv,min=0, max=2, step=0.01)
+    })
+  })
+  observeEvent(input$obs, {output$Obs.Brefcv<-renderUI({
+    numericInput("Brefcv","Bias: target reference biomass (e.g. BMSY)",value=get(input$obs)@Brefcv,min=0, max=2, step=0.01)
     })
   })
   observeEvent(input$obs, {output$Obs.beta<-renderUI({
@@ -939,36 +939,40 @@ shinyServer(function(input, output,session) {
 #    fleet.in@DR<-input$DR
     
     obsmod.in<-get(input$obs)
-
+    
+    obsmod.in@LenMcv<-input$LenMcv
     obsmod.in@Cobs<-input$Cobs
     obsmod.in@Cbiascv<-input$Cbiascv
     obsmod.in@CAA_nsamp<-input$CAA_nsamp
     obsmod.in@CAA_ESS<-input$CAA_ESS
     obsmod.in@CAL_nsamp<-input$CAL_nsamp
     obsmod.in@CAL_ESS<-input$CAL_ESS
+    obsmod.in@CALcv<-input$CALcv
     obsmod.in@Iobs<-input$Iobs
-    obsmod.in@Ibiascv<-input$Ibiascv
-    obsmod.in@Btbiascv<-input$Btbiascv
-    obsmod.in@Btobs<-input$Btobs
-    obsmod.in@beta<-input$beta
-    obsmod.in@LenMbiascv<-input$LenMbiascv
-    obsmod.in@Mbiascv<-input$Mbiascv
-    obsmod.in@Kbiascv<-input$Kbiascv
-    obsmod.in@t0biascv<-input$t0biascv
-    obsmod.in@Linfbiascv<-input$Linfbiascv
-    obsmod.in@LFCbiascv<-input$LFCbiascv
-    obsmod.in@LFSbiascv<-input$LFSbiascv
-    obsmod.in@FMSYbiascv<-input$FMSYbiascv
-    obsmod.in@FMSY_Mbiascv<-input$FMSY_Mbiascv
-    obsmod.in@BMSY_B0biascv<-input$BMSY_B0biascv
-    obsmod.in@Irefbiascv<-input$Irefbiascv
-    obsmod.in@Brefbiascv<-input$Brefbiascv
-    obsmod.in@Crefbiascv<-input$Crefbiascv
+    obsmod.in@Icv<-input$Icv
+    obsmod.in@Mcv<-input$Mcv
+    obsmod.in@Kcv<-input$Kcv
+    obsmod.in@t0cv<-input$t0cv
+    obsmod.in@LFCcv<-input$LFCcv
+    obsmod.in@LFScv<-input$LFScv
+    obsmod.in@B0cv<-input$B0cv
+    obsmod.in@FMSYcv<-input$FMSYcv
+    obsmod.in@FMSY_Mcv<-input$FMSY_Mcv
+    obsmod.in@BMSY_B0cv<-input$BMSY_B0cv
     obsmod.in@Dbiascv<-input$Dbiascv
-    obsmod.in@Dobs<-input$Dobs
-    obsmod.in@hbiascv<-input$hbiascv
-    obsmod.in@Recbiascv<-input$Recbiascv
-    
+    obsmod.in@Dcv<-input$Dcv
+    obsmod.in@Btbias<-input$Btbias
+    obsmod.in@Btcv<-input$Btcv
+    obsmod.in@Fcurbiascv<-input$Fcurbiascv
+    obsmod.in@Fcurcv<-input$Fcurcv
+    obsmod.in@hcv<-input$hcv
+    obsmod.in@maxagecv<-input$maxagecv
+    obsmod.in@Reccv<-input$Reccv
+    obsmod.in@Irefcv<-input$Irefcv
+    obsmod.in@Crefcv<-input$Crefcv
+    obsmod.in@Brefcv<-input$Brefcv
+    obsmod.in@beta<-input$beta
+
     OM<- new('OM',stock.in, fleet.in, obsmod.in)
     output$downloadOM <- downloadHandler(
           filename = function() { paste0("OM",Sys.time(),".DMP", sep='') },
