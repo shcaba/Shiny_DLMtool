@@ -365,7 +365,6 @@ shinyServer(function(input, output,session) {
     
   #Run TAC and plot results
   MP.labs<-eventReactive(input$run_dlm,{input$checkGroup})
-  
   TAC.out<-eventReactive(input$run_dlm,{
     #if(run.check()>0){
       inFile <- input$file1
@@ -382,12 +381,12 @@ shinyServer(function(input, output,session) {
       if(is.null(dim(TAC.out))==TRUE){
         TAC.df.melt<-melt(TAC.df)
         TAC.df.melt[,1]<-MP.labs()
-        TAC.plot<-ggplot(data=TAC.df.melt,aes(as.factor(variable),value))+geom_boxplot()+ coord_flip()+labs(x="DL Method",y="TAC")+ylim(0,quantile(TAC.out,0.95,na.rm=T))
+        TAC.plot<-ggplot(data=TAC.df.melt,aes(as.factor(variable),value))+geom_boxplot()+ coord_flip()+labs(x="DL Method",y="TAC")+ylim(0,max(TAC.out)) # ,0.95,na.rm=T))
         }
       if(is.null(dim(TAC.out))==FALSE){
         colnames(TAC.df)<-MP.labs()
         TAC.df.melt<-melt(TAC.df)
-        TAC.plot<-ggplot(data=TAC.df.melt,aes(as.factor(variable),value))+geom_boxplot()+ coord_flip()+labs(x="DL Method",y="TAC")+ylim(0,quantile(TAC.out,0.95,na.rm=T))
+        TAC.plot<-ggplot(data=TAC.df.melt,aes(as.factor(variable),value))+geom_boxplot()+ coord_flip()+labs(x="DL Method",y="TAC")+ylim(0,max(TAC.out)) # ,0.95,na.rm=T))
         }
       print(TAC.plot)
       output$downloadTAC <- downloadHandler(
