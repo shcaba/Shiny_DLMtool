@@ -41,7 +41,7 @@ class(ORCS_refined)<-"Output"
 environment(ORCS_refined) <- asNamespace('DLMtool')
 
 sapply(1,ORCS_refined,Red_snapper,reps=5,stock.cat=1)
-
+ORCS_refined(1,Red_snapper,reps=5,stock.cat=1)
 #Stock category as a slot
 ORCS_refined<-function(x,Data,reps=100)
 {
@@ -49,8 +49,10 @@ ORCS_refined<-function(x,Data,reps=100)
 	scalar<-c(2,1.22,0.41)
 	apply(Ct.in,1,quantile,0.1)*scalar[Data@Misc[[1]][1]]
 }
-class(ORCS_refined)<-"Output"
-environment(ORCS_refined) <- asNamespace('DLMtool')
+#class(ORCS_refined)<-"Output"
+#environment(ORCS_refined) <- asNamespace('DLMtool')
+class(ORCS_refined)<-"MP"
+sfExport("ORCS_refined")
 
 Example_datafile@Misc<-list(2)
 sapply(1,ORCS_refined,Example_datafile,reps=5)
