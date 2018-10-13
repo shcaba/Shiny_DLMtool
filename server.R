@@ -357,8 +357,10 @@ shinyServer(function(input, output,session) {
     if (is.null(inFile)) return(NULL)
     else{
       dlm_input<-new("Data",stock=inFile$datapath)
-      cant.table<-data.frame(cbind(cantlist(),Needed(dlm_input)))
-      colnames(cant.table)<-c("Method","Reason","Needed")
+      #cant.table<-data.frame(cbind(cantlist()[,1],cantlist()[,2]))
+      #colnames(cant.table)<-c("Method","Needed inputs")
+      cant.table<-data.frame(Needed(dlm_input))
+      colnames(cant.table)<-c("Method and Needed inputs")
       return(cant.table)
     }
   })
