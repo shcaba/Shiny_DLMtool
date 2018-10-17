@@ -574,6 +574,10 @@ shinyServer(function(input, output,session) {
     sliderInput("M","M",min=0, max=2, value=get(input$stock)@M,step =0.01)
     })
   })
+  observeEvent(input$stock, {output$stock.M2<-renderUI({
+    sliderInput("M2","M2",min=0, max=2, value=get(input$stock)@M2,step =0.01)
+    })
+  })
   observeEvent(input$stock, {output$stock.Msd<-renderUI({
     sliderInput("Msd","SD of M",min=0, max=2, value=get(input$stock)@Msd,step =0.1)
     })
@@ -661,20 +665,6 @@ shinyServer(function(input, output,session) {
   observeEvent(input$stock, {output$stock.h<-renderUI({
     sliderInput("h","Steepness",min=0.2, max=1, value=get(input$stock)@h,step =0.01)
     })
-  })
-  observeEvent(input$stock, {output$stock.recgrad<-renderUI({
-    sliderInput("recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@SRrel,step =0.1)
-    })
-  observe({
-    if (input$zerogradients%%2 == 0)
-    {
-      updateSliderInput(session,"recgrad","Rec. gradient",min=-10, max=10, value=get(input$stock)@SRrel,step =0.1)
-    }
-    else
-    {
-      updateSliderInput(session,"recgrad","Rec. gradient",min=-10, max=10, value=c(0,0),step =0.1)
-    }
-  })
   })
   observeEvent(input$stock, {output$stock.Perr<-renderUI({
     sliderInput("Perr","Rec. dev. error",min=0, max=2, value=get(input$stock)@Perr,step =0.1)
@@ -810,7 +800,7 @@ shinyServer(function(input, output,session) {
     })
   })
   observeEvent(input$obs, {output$Obs.t0biascv<-renderUI({
-    numericInput("tbias0cv","Bias: VBGF t0",value=get(input$obs)@t0biascv,min=0, max=2, step=0.01)
+    numericInput("t0biascv","Bias: VBGF t0",value=get(input$obs)@t0biascv,min=0, max=2, step=0.01)
     })
   })
   observeEvent(input$obs, {output$Obs.LFCbiascv<-renderUI({
@@ -901,6 +891,7 @@ shinyServer(function(input, output,session) {
     stock.in<-get(input$stock)
     stock.in@maxage<-input$maxage
     stock.in@M<-input$M
+    stock.in@M2<-input$M2
     stock.in@Msd<-input$Msd
     stock.in@Mgrad<-input$Mgrad
     stock.in@Linf<-input$Linf
@@ -915,7 +906,6 @@ shinyServer(function(input, output,session) {
     stock.in@R0<-input$R0
     stock.in@SRrel<-input$SRrel
     stock.in@h<-input$h
-    stock.in@recgrad<-input$recgrad
     stock.in@Perr<-input$Perr
     stock.in@AC<-input$AC
     stock.in@L50<-input$L50
@@ -971,6 +961,12 @@ shinyServer(function(input, output,session) {
     obsmod.in@Recbiascv<-input$Recbiascv
     
     OM<- new('OM',stock.in, fleet.in, obsmod.in)
+    OM@nsim<-input$numsims
+    OM@proyears<-input$Projyears
+    OM@interval<-input$MSE_intervals
+    OM@pstar<-input$pstar
+    OM@reps<-input$reps    
+    
     output$downloadOM <- downloadHandler(
           filename = function() { paste0("OM",Sys.time(),".DMP", sep='') },
           content = function(file) {save(OM,file=file)}) 
@@ -1007,7 +1003,7 @@ shinyServer(function(input, output,session) {
              progress$set(value = i)
              Sys.sleep(0.5)
            }
-         MSEout <- runMSE(OM(), MPs=MPs(),nsim=input$numsims,proyears=input$Projyears,interval=input$MSE_intervals,pstar=input$pstar,reps=input$reps)
+         MSEout <- runMSE(OM(), MPs=MPs())
          return(MSEout)
     })
 
@@ -1027,7 +1023,7 @@ shinyServer(function(input, output,session) {
 #MSE Convergence plot    
   output$MSE_Convergence <- renderPlot({   
     MSEout<-runMSE.box()
-    print(CheckConverg(MSEout))
+    print(Converge(MSEout))
     output$downloadMSE_Converge <- downloadHandler(
       filename = function() {paste0("MSE_Converge",Sys.time(),".png")},
       content = function(file) {
@@ -1101,16 +1097,17 @@ shinyServer(function(input, output,session) {
 
   output$MSE_Kobe2 <- renderPlot({   
     MSEout<-runMSE.box()
-    print(MSEout)
+    #print(MSEout)
     subMPs<-input$plotsubMPs
     if (is.null(subMPs)) subMPs<-MPs()
     subMSE <- Sub(MSEout, MPs=subMPs) #Grab only MPs you want to plot
-    print(Kplot2(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot"))
+    print(input$Kplotmaxsim)
+    print(Kplot(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot"))
     output$downloadMSE_Kobe2 <- downloadHandler(
       filename = function() {paste0("MSE_Kobe",Sys.time(),".png")},
       content = function(file) {
         png(file, type='cairo',width=800,height=720)
-        Kplot2(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot")
+        Kplot(subMSE,maxsim=input$Kplotmaxsim,nam="Kobe plot")
         dev.off()},contentType = 'image/png') 
   })
   
@@ -1119,12 +1116,12 @@ shinyServer(function(input, output,session) {
     subMPs<-input$plotsubMPs
     if (is.null(subMPs)) subMPs<-MPs()
     subMSE <- Sub(MSEout, MPs=subMPs)
-    print(Pplot2(subMSE,nam="Projection plot"))
+    print(Pplot(subMSE,nam="Projection plot"))
     output$downloadMSE_Pplot2 <- downloadHandler(
       filename = function() {paste0("MSE_Pplot",Sys.time(),".png")},
       content = function(file) {
         png(file, type='cairo',width=800,height=720)
-        Pplot2(subMSE,nam="Projection plot")
+        Pplot(subMSE,nam="Projection plot")
         dev.off()},contentType = 'image/png') 
   })
 
