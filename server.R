@@ -410,7 +410,7 @@ shinyServer(function(input, output,session) {
     TAC.df<-data.frame(t(TAC.out()))
     TAC.df.melt<-melt(TAC.df)
     TAC.densityplot<- ggplot(data=TAC.df.melt,aes(value))+
-      geom_density(fill="gray")+xlim(0,quantile(TAC.out(),0.95,na.rm=T))+
+      geom_density(fill="gray")+xlim(0,max(TAC.df.melt$value))+
       labs(x="TAC",y="Density")+
       geom_vline(xintercept = quantile(TAC.out(),0.5,na.rm=T),color=c("darkblue"),size=1.2)+
       geom_vline(xintercept = quantile(TAC.out(),input$Pstar,na.rm=T),linetype = "longdash",color="darkgreen",size=1)
