@@ -2,13 +2,19 @@
 #load library
 library(DLMtool)
 
+#Website for user guide
+#https://dlmtool.github.io/DLMtool/userguide/creating-your-own-data-object.html
+
 #Running TAC estimation with DLMobject
 #access example data objects
-#for(i in 1:length(DLMdat))assign(DLMdat[[i]]@Name,DLMdat[[i]])
 avail('Data') 
-#setwd("D:/JMC/Documents/GitHub/Shiny_DLMtool/")
-setwd("C:/Users/Jason.Cope/Documents/GitHub/Shiny_DLMtool/")
-Ex_dlm.data<-new("Data",stock="DLM_objects_examples/Example_datafile.csv")
+
+setwd("C:/Users/Jason.Cope/Documents/Github/Shiny_DLMtool/DLM_objects_examples")
+#Initialize new data csv file
+DataInit("MyData")
+Ex_dlm.data <- XL2Data("Example_datafile.csv")
+China_rockfish <- XL2Data("China_rockfish.csv")
+Ex_dlm.dataII<-new("Data",stock="Example_datafile.csv")
 
 #Example:explore dlm object
 slotNames(Ex_dlm.data) #checks object inputs
@@ -18,14 +24,20 @@ Cant(Ex_dlm.data)  #Methods that cannot be use
 Needed(Ex_dlm.data) #What data needed for each "cant" method
 #Calculate and plot catch estimates
 Ex_dlm.data.TAC<-TAC(Ex_dlm.data)
-plot(Ex_dlm.data.TAC)
+Ex_dlm.data.TAC<-runMP(Ex_dlm.data)
+#plot(Ex_dlm.data.TAC)
 
-boxplot(t(Ex_dlm.data.TAC@TAC[,,1]),horizontal=TRUE,ylim=c(0,250),axes=F,xlab="Total Allowable Catches",ylab="")
-box()
-axis(1)
-axis(2,at=c(1:length(Ex_dlm.data.TAC@MPs)),labels= Ex_dlm.data.TAC@MPs,las=2)
+# boxplot(t(Ex_dlm.data.TAC@TAC[,,1]),horizontal=TRUE,ylim=c(0,250),axes=F,xlab="Total Allowable Catches",ylab="")
+# box()
+# axis(1)
+# axis(2,at=c(1:length(Ex_dlm.data.TAC@MPs)),labels= Ex_dlm.data.TAC@MPs,las=2)
 #Sensitivity to specified method and its inputs
 Example_DCAC_sensi<-Sense(Ex_dlm.data.TAC,"DCAC")
+
+
+
+
+
 
 #########################
 ### Create custom DLM ###

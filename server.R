@@ -574,28 +574,28 @@ shinyServer(function(input, output,session) {
     sliderInput("M","M",min=0, max=2, value=get(input$stock)@M,step =0.01)
     })
   })
-  observeEvent(input$stock, {output$stock.M2<-renderUI({
-    sliderInput("M2","M2",min=0, max=2, value=get(input$stock)@M2,step =0.01)
-    })
-  })
+  # observeEvent(input$stock, {output$stock.M2<-renderUI({
+  #   sliderInput("M2","M2",min=0, max=2, value=get(input$stock)@M2,step =0.01)
+  #   })
+  # })
   observeEvent(input$stock, {output$stock.Msd<-renderUI({
     sliderInput("Msd","SD of M",min=0, max=2, value=get(input$stock)@Msd,step =0.1)
     })
   })
-  observeEvent(input$stock, {output$stock.Mgrad<-renderUI({
-    sliderInput("Mgrad","M gradient",min=-2, max=2, value=get(input$stock)@Mgrad,step =0.01)
-  })
-  observe({
-    if (input$zerogradients%%2 == 0)
-    {
-      updateSliderInput(session,"Mgrad","M gradient",min=-2, max=2, value=get(input$stock)@Mgrad,step =0.01)
-    }
-    else
-    {
-      updateSliderInput(session,"Mgrad","M gradient",min=-2, max=2, value=c(0,0),step =0.01)
-    }
-  })
-  })
+  # observeEvent(input$stock, {output$stock.Mgrad<-renderUI({
+  #   sliderInput("Mgrad","M gradient",min=-2, max=2, value=get(input$stock)@Mgrad,step =0.01)
+  # })
+  # observe({
+  #   if (input$zerogradients%%2 == 0)
+  #   {
+  #     updateSliderInput(session,"Mgrad","M gradient",min=-2, max=2, value=get(input$stock)@Mgrad,step =0.01)
+  #   }
+  #   else
+  #   {
+  #     updateSliderInput(session,"Mgrad","M gradient",min=-2, max=2, value=c(0,0),step =0.01)
+  #   }
+  # })
+  # })
   
   
   observeEvent(input$stock, {output$stock.Linf<-renderUI({
@@ -606,20 +606,20 @@ shinyServer(function(input, output,session) {
     sliderInput("Linfsd","SD of Linf",min=0, max=2, value=get(input$stock)@Linfsd,step =0.001)
     })
   })
-  observeEvent(input$stock, {output$stock.Linfgrad<-renderUI({
-    sliderInput("Linfgrad","Linf gradient",min=-2, max=2, value=get(input$stock)@Linfgrad,step =0.01)
-    })
-  observe({
-    if (input$zerogradients%%2 == 0)
-    {
-      updateSliderInput(session,"Linfgrad","Linf gradient",min=-2, max=2, value=get(input$stock)@Linfgrad,step =0.01)
-    }
-    else
-    {
-      updateSliderInput(session,"Linfgrad","Linf gradient",min=-2, max=2, value=c(0,0),step =0.01)
-    }
-  })
-  })
+  # observeEvent(input$stock, {output$stock.Linfgrad<-renderUI({
+  #   sliderInput("Linfgrad","Linf gradient",min=-2, max=2, value=get(input$stock)@Linfgrad,step =0.01)
+  #   })
+  # observe({
+  #   if (input$zerogradients%%2 == 0)
+  #   {
+  #     updateSliderInput(session,"Linfgrad","Linf gradient",min=-2, max=2, value=get(input$stock)@Linfgrad,step =0.01)
+  #   }
+  #   else
+  #   {
+  #     updateSliderInput(session,"Linfgrad","Linf gradient",min=-2, max=2, value=c(0,0),step =0.01)
+  #   }
+  # })
+  # })
   observeEvent(input$stock, {output$stock.K<-renderUI({
     sliderInput("K","K",min=0, max=2, value=get(input$stock)@K,step =0.001)
     })
@@ -628,20 +628,20 @@ shinyServer(function(input, output,session) {
     sliderInput("Ksd","SD of K",min=0, max=2, value=get(input$stock)@Ksd,step =0.001)
     })
   })
-  observeEvent(input$stock, {output$stock.Kgrad<-renderUI({
-    sliderInput("Kgrad","K gradient",min=-2, max=2, value=get(input$stock)@Kgrad,step =0.01)
-    })
-  observe({
-    if (input$zerogradients%%2 == 0)
-    {
-      updateSliderInput(session,"Kgrad","K gradient",min=-2, max=2, value=get(input$stock)@Kgrad,step =0.01)
-    }
-    else
-    {
-      updateSliderInput(session,"Kgrad","K gradient",min=-2, max=2, value=c(0,0),step =0.01)
-    }
-  })
-  })
+  # observeEvent(input$stock, {output$stock.Kgrad<-renderUI({
+  #   sliderInput("Kgrad","K gradient",min=-2, max=2, value=get(input$stock)@Kgrad,step =0.01)
+  #   })
+  # observe({
+  #   if (input$zerogradients%%2 == 0)
+  #   {
+  #     updateSliderInput(session,"Kgrad","K gradient",min=-2, max=2, value=get(input$stock)@Kgrad,step =0.01)
+  #   }
+  #   else
+  #   {
+  #     updateSliderInput(session,"Kgrad","K gradient",min=-2, max=2, value=c(0,0),step =0.01)
+  #   }
+  # })
+  # })
   observeEvent(input$stock, {output$stock.t0<-renderUI({
     sliderInput("t0","t0",min=-10, max=10, value=get(input$stock)@t0,step =0.01)
     })
@@ -783,10 +783,10 @@ shinyServer(function(input, output,session) {
     sliderInput("Iobs","Obs. error in rel. abund. index",min=-0, max=2, value=get(input$obs)@Iobs, step=0.01)
     })
   })
-  observeEvent(input$obs, {output$Obs.Ibiascv<-renderUI({
-    numericInput("Ibiascv","Bias: rel. abund. index",value=get(input$obs)@Ibiascv,min=0, max=2, step=0.01)
-    })
-  })
+  # observeEvent(input$obs, {output$Obs.Ibiascv<-renderUI({
+  #   numericInput("Ibiascv","Bias: rel. abund. index",value=get(input$obs)@Ibiascv,min=0, max=2, step=0.01)
+  #   })
+  # })
   observeEvent(input$obs, {output$Obs.Mbiascv<-renderUI({
     numericInput("Mbiascv","Bias: natural mortality",value=get(input$obs)@Mbiascv,min=0, max=2, step=0.01)
     })
@@ -815,10 +815,10 @@ shinyServer(function(input, output,session) {
   #   numericInput("B0cv","Bias: unfished stock size",value=get(input$obs)@B0cv,min=0, max=2, step=0.01)
   #   })
   # })
-  observeEvent(input$obs, {output$Obs.FMSYbiascv<-renderUI({
-    numericInput("FMSYbiascv","Bias: FMSY",value=get(input$obs)@FMSYbiascv,min=0, max=2, step=0.01)
-    })
-  })
+  # observeEvent(input$obs, {output$Obs.FMSYbiascv<-renderUI({
+  #   numericInput("FMSYbiascv","Bias: FMSY",value=get(input$obs)@FMSYbiascv,min=0, max=2, step=0.01)
+  #   })
+  # })
   observeEvent(input$obs, {output$Obs.FMSY_Mbiascv<-renderUI({
     numericInput("FMSY_Mbiascv","Bias: FMSY/M",value=get(input$obs)@FMSY_Mbiascv,min=0, max=2, step=0.01)
     })
@@ -839,15 +839,15 @@ shinyServer(function(input, output,session) {
     sliderInput("Dobs","Obs. error in stock status",min=-0, max=2, value=get(input$obs)@Dobs, step=0.01)
     })  
   })
-  observeEvent(input$obs, {output$Obs.Btobs<-renderUI({
-    sliderInput("Btobs","Obs. error of current stock scale",min=-0, max=2, value=get(input$obs)@Btobs, step=0.01)
-    })
-  })
-  observeEvent(input$obs, {output$Obs.Btbiascv<-renderUI({
-    sliderInput("Btbiascv","Bias in current stock scale",min=-0, max=2, value=get(input$obs)@Btbiascv, step=0.01)
-    })
-  })
-  # observeEvent(input$obs, {output$Obs.Fcurbiascv<-renderUI({
+  # observeEvent(input$obs, {output$Obs.Btobs<-renderUI({
+  #   sliderInput("Btobs","Obs. error of current stock scale",min=-0, max=2, value=get(input$obs)@Btobs, step=0.01)
+  #   })
+  # })
+  # observeEvent(input$obs, {output$Obs.Btbiascv<-renderUI({
+  #   sliderInput("Btbiascv","Bias in current stock scale",min=-0, max=2, value=get(input$obs)@Btbiascv, step=0.01)
+  #   })
+  # })
+  # # observeEvent(input$obs, {output$Obs.Fcurbiascv<-renderUI({
   #   numericInput("Fcurbiascv","Bias: current F",value=get(input$obs)@Fcurbiascv,min=0, max=2, step=0.01)
   #   })
   # })
@@ -891,15 +891,15 @@ shinyServer(function(input, output,session) {
     stock.in<-get(input$stock)
     stock.in@maxage<-input$maxage
     stock.in@M<-input$M
-    stock.in@M2<-input$M2
+    #stock.in@M2<-input$M2
     stock.in@Msd<-input$Msd
-    stock.in@Mgrad<-input$Mgrad
+    #stock.in@Mgrad<-input$Mgrad
     stock.in@Linf<-input$Linf
     stock.in@Linfsd<-input$Linfsd
-    stock.in@Linfgrad<-input$Linfgrad
+    #stock.in@Linfgrad<-input$Linfgrad
     stock.in@K<-input$K
     stock.in@Ksd<-input$Ksd
-    stock.in@Kgrad<-input$Kgrad
+    #stock.in@Kgrad<-input$Kgrad
     stock.in@t0<-input$t0
     stock.in@a<-input$WtLt_a
     stock.in@b<-input$WtLt_b
@@ -938,9 +938,9 @@ shinyServer(function(input, output,session) {
     obsmod.in@CAL_nsamp<-input$CAL_nsamp
     obsmod.in@CAL_ESS<-input$CAL_ESS
     obsmod.in@Iobs<-input$Iobs
-    obsmod.in@Ibiascv<-input$Ibiascv
-    obsmod.in@Btbiascv<-input$Btbiascv
-    obsmod.in@Btobs<-input$Btobs
+    #obsmod.in@Ibiascv<-input$Ibiascv
+    #obsmod.in@Btbiascv<-input$Btbiascv
+    #obsmod.in@Btobs<-input$Btobs
     obsmod.in@beta<-input$beta
     obsmod.in@LenMbiascv<-input$LenMbiascv
     obsmod.in@Mbiascv<-input$Mbiascv
@@ -949,11 +949,11 @@ shinyServer(function(input, output,session) {
     obsmod.in@Linfbiascv<-input$Linfbiascv
     obsmod.in@LFCbiascv<-input$LFCbiascv
     obsmod.in@LFSbiascv<-input$LFSbiascv
-    obsmod.in@FMSYbiascv<-input$FMSYbiascv
+    #obsmod.in@FMSYbiascv<-input$FMSYbiascv
     obsmod.in@FMSY_Mbiascv<-input$FMSY_Mbiascv
     obsmod.in@BMSY_B0biascv<-input$BMSY_B0biascv
     obsmod.in@Irefbiascv<-input$Irefbiascv
-    obsmod.in@Brefbiascv<-input$Brefbiascv
+    o#bsmod.in@Brefbiascv<-input$Brefbiascv
     obsmod.in@Crefbiascv<-input$Crefbiascv
     obsmod.in@Dbiascv<-input$Dbiascv
     obsmod.in@Dobs<-input$Dobs
